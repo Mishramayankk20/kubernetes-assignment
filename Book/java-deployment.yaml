@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-deployment
+  labels:
+    app: java-book
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-book
+  template:
+    metadata:
+      labels:
+        app: java-book
+    spec:
+      containers:
+      - name: book
+        image: mishramayankk20/bookjar:111 
+        ports:
+        - containerPort: 80
+      restartPolicy: Always
+
+    
